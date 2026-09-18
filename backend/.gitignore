@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+.env.local
+# CLAVE SECRETA de Firebase: nunca subir
+serviceAccountKey.json
+*serviceAccount*.json
+*firebase-adminsdk*.json
