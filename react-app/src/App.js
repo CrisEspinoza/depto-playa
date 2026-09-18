@@ -6,6 +6,7 @@ import Login from './components/Login';
 import MonthSelector from './components/MonthSelector';
 import CategorySummary from './components/CategorySummary';
 import UncategorizedTransactions from './components/UncategorizedTransactions';
+import TransactionsDetail from './components/TransactionsDetail';
 import CategoriesConfig from './components/CategoriesConfig';
 import FixedCuentaDetails from './components/FixedCuentaDetails';
 import {
@@ -246,6 +247,7 @@ function Dashboard({ user }) {
     : selectedCuentaDetails;
 
   const uncategorizedForMonth = summary?.uncategorized || [];
+  const monthTransactions = filterByMonth(transactions, selectedMonth);
 
   return (
     <div className="app">
@@ -314,6 +316,7 @@ function Dashboard({ user }) {
                 ❓ Sin categorizar
                 {uncategorizedForMonth.length > 0 && <span className="tab-badge">{uncategorizedForMonth.length}</span>}
               </button>
+              <button className={`tab-btn ${activeTab === 'movimientos' ? 'active' : ''}`} onClick={() => setActiveTab('movimientos')}>📋 Movimientos</button>
               <button className={`tab-btn ${activeTab === 'categories' ? 'active' : ''}`} onClick={() => setActiveTab('categories')}>⚙️ Categorías</button>
             </div>
 
@@ -351,6 +354,10 @@ function Dashboard({ user }) {
 
             {activeTab === 'uncategorized' && (
               <UncategorizedTransactions transactions={uncategorizedForMonth} selectedMonth={selectedMonth} selectedFile={cuentasSource} />
+            )}
+
+            {activeTab === 'movimientos' && (
+              <TransactionsDetail transactions={monthTransactions} selectedMonth={selectedMonth} />
             )}
 
             {activeTab === 'categories' && (
