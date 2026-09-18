@@ -2,14 +2,20 @@
 import re
 
 DEFAULT_CATEGORIES = [
-    {"name": "Airbnb", "type": "income", "pattern": "angon|iol|radar|proveedor|airbnb|aibnb", "description": "Ingresos de arriendos Airbnb"},
-    {"name": "External Rent", "type": "income", "pattern": "guzman|jesus|deposito en efectivo", "description": "Ingresos de arriendos externos"},
-    {"name": "Cleaning Services (Old)", "type": "expense", "pattern": "vidal", "description": "Servicio de aseo antiguo"},
-    {"name": "Admin Services", "type": "expense", "pattern": "yuvi|yuviana|moreno|rentals", "description": "Servicios de administración"},
-    {"name": "Admin Monthly Account", "type": "expense", "pattern": "protecc", "description": "Cuenta mensual de administración"},
-    {"name": "Transfers to Cristian", "type": "expense", "pattern": "cristian", "description": "Transferencias a Cristian"},
-    {"name": "Transfers to Keyla", "type": "expense", "pattern": "keyla", "description": "Transferencias a Keyla"},
+    {"name": "Airbnb", "type": "income", "pattern": "angon|iol|radar|proveedor|airbnb|aibnb", "description": "Ingresos Airbnb"},
+    {"name": "External Rent", "type": "income", "pattern": "guzman|jesus|deposito en efectivo", "description": "Arriendos externos"},
+    {"name": "Aporte Michael", "type": "income", "pattern": "de michael", "description": "Recibido de Michael"},
+    {"name": "Cristian income", "type": "income", "pattern": "de cristian", "description": "Recibido de Cristian"},
+    {"name": "Administracion", "type": "expense", "pattern": "yuvi|yuviana|moreno|rentals", "description": "Administracion"},
+    {"name": "Admin Monthly Account", "type": "expense", "pattern": "protecc", "description": "Cuenta admin mensual"},
+    {"name": "Transferencia a Cristian", "type": "expense", "pattern": "a cristian", "description": "Enviado a Cristian"},
+    {"name": "Transferencia a Keyla", "type": "expense", "pattern": "a keyla", "description": "Enviado a Keyla"},
+    {"name": "Transferencia a Michael", "type": "expense", "pattern": "a michael", "description": "Enviado a Michael"},
+    {"name": "Tarjeta de Credito", "type": "expense", "pattern": "tarjeta de credito|tarjeta credito|deuda inter|pago automat", "description": "Pago de tarjeta"},
     {"name": "Key Lock", "type": "expense", "pattern": "smart", "description": "Cerradura inteligente"},
+    {"name": "Aseo", "type": "expense", "pattern": "vidal", "description": "Aseo"},
+    {"name": "Servicios (en Cuentas)", "type": "ignore", "pattern": "chilquinta|esval|movistar|aguas", "description": "Luz/Agua/Internet van del Excel de Cuentas"},
+    {"name": "Deposito a Plazo (DAP)", "type": "ignore", "pattern": "inversion dap|pago dap|deposito a plazo", "description": "Ahorro interno"},
 ]
 
 

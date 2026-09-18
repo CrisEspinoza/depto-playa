@@ -173,6 +173,18 @@ export const calculateSummary = (transactions, cuentasForMonth = {}) => {
     }
   });
 
+  // Otros: los movimientos sin categoria se cuentan como "Otros Ingresos"/"Otros Gastos"
+  let otrosIngresos = 0, otrosGastos = 0;
+  summary.uncategorized.forEach(t => { otrosIngresos += t.credits || 0; otrosGastos += t.charges || 0; });
+  if (otrosIngresos > 0) {
+    summary.totalIncome += otrosIngresos;
+    summary.incomeCategories.push({ name: 'Otros Ingresos', type: 'income', transactions: summary.uncategorized.filter(t => (t.credits || 0) > 0), totalCredits: otrosIngresos, totalCharges: 0 });
+  }
+  if (otrosGastos > 0) {
+    summary.totalExpenses += otrosGastos;
+    summary.expenseCategories.push({ name: 'Otros Gastos', type: 'expense', transactions: summary.uncategorized.filter(t => (t.charges || 0) > 0), totalCharges: otrosGastos, totalCredits: 0 });
+  }
+
   // Add fixed expenses (Cuentas) as synthetic expense categories
   Object.entries(cuentasForMonth).forEach(([name, amount]) => {
     if (amount > 0) {

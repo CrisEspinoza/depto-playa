@@ -110,6 +110,7 @@ const CategoriesConfig = ({ categories, onCategoriesChange, onSaveCategories }) 
 
   const income  = categories.filter(c => c.type === 'income');
   const expense = categories.filter(c => c.type === 'expense');
+  const ignore  = categories.filter(c => c.type === 'ignore');
 
   return (
     <div className="categories-config">
@@ -130,15 +131,15 @@ const CategoriesConfig = ({ categories, onCategoriesChange, onSaveCategories }) 
         {saveError && <p className="config-save-error">{saveError}</p>}
       </div>
 
-      {['income', 'expense'].map(type => {
-        const rows = type === 'income' ? income : expense;
-        const label = type === 'income' ? '📈 Income Categories' : '📉 Expense Categories';
+      {['income', 'expense', 'ignore'].map(type => {
+        const rows = type === 'income' ? income : (type === 'expense' ? expense : ignore);
+        const label = type === 'income' ? '📈 Categorías de Ingreso' : (type === 'expense' ? '📉 Categorías de Egreso' : '🚫 Excluidas (no se cuentan: ya están en Cuentas o son internas)');
         return (
           <div key={type} className={`config-section config-section-${type}`}>
             <div className="config-section-header">
               <h4 className="config-section-label">{label} ({rows.length})</h4>
               <button className="action-btn add-cat-btn" onClick={() => startAdd(type)}>
-                {type === 'income' ? '+ Add Income Category' : '+ Add Expense Category'}
+                {type === 'income' ? '+ Agregar Ingreso' : (type === 'expense' ? '+ Agregar Egreso' : '+ Agregar Excluida')}
               </button>
             </div>
             <div className="config-table-wrapper">
