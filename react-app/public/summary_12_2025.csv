@@ -1,0 +1,9 @@
+Fecha,N° de operación,Movimientos,Cargos,Abonos,Saldo,category
+2025-12-02,100001,Abono Airbnb Payments Ejemplo,0,120000,120000,Airbnb
+2025-12-05,100002,Deposito en efectivo ejemplo,0,80000,200000,External Rent
+2025-12-08,100003,Pago Yuvi Rentals ejemplo,45000,0,155000,Admin Services
+2025-12-11,100004,Cuenta Protecc mensual ejemplo,15000,0,140000,Admin Monthly Account
+2025-12-15,100005,Servicio Vidal aseo ejemplo,30000,0,110000,Cleaning Services (Old)
+2025-12-20,100006,Compra supermercado ejemplo,25000,0,85000,
+2025-12-22,100007,Abono Airbnb Payments Ejemplo,0,95000,180000,Airbnb
+2025-12-28,100008,Pago Smart cerradura ejemplo,20000,0,160000,Key Lock

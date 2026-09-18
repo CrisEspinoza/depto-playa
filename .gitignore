@@ -1,0 +1,25 @@
+# Dependencias
+/node_modules
+*/node_modules
+
+# Artefactos de sistema/editor
+.DS_Store
+
+# Entorno Python local / cache
+.venv/
+__pycache__/
+*.pyc
+
+# ── Datos reales / generados: NO van al repo (van a Firebase) ──
+movement_historial/
+output/
+misc/
+out.csv
+/summary_2026_03.csv
+custom_categories.json
+*.xls
+*.xlsx
+
+# Variables de entorno locales (credenciales)
+.env.local
+.env.*.local
